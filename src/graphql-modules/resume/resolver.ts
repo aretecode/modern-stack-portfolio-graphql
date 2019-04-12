@@ -1,5 +1,8 @@
 import { readFileAsyncJson, writeFileAsyncJson, dbAbsolutePath } from '../../fs'
 import { logger } from '../../log'
+import db from '../../db.json'
+
+let inMemoryBecauseNowFileSystemIsReadOnly = { ...db }
 
 export default {
   Query: {
@@ -10,10 +13,7 @@ export default {
         return response
       } catch (fileSystemError) {
         logger.error(fileSystemError)
-        /**
-         * @@security would want to hide the stack
-         */
-        throw fileSystemError
+        return inMemoryBecauseNowFileSystemIsReadOnly
       }
     },
   },
@@ -28,11 +28,7 @@ export default {
         logger.info('[resume] wrote file')
       } catch (fileSystemError) {
         logger.error(fileSystemError)
-
-        /**
-         * @see @@security above
-         */
-        throw fileSystemError
+        inMemoryBecauseNowFileSystemIsReadOnly = args
       }
     },
   },
