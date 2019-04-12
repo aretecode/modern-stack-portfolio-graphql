@@ -1,5 +1,6 @@
 {
   "version": 2,
+  "name": "modern-stack-skeletons-graphql",
   "env": {
     "IS_NOW": "true"
   },
