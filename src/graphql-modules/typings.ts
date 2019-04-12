@@ -4,7 +4,7 @@ import { ApolloError } from 'apollo-server'
 import {
   GraphQLRequest,
   GraphQLResponse as ApolloGraphQLResponse,
-} from 'apollo-server-core/src/requestpipelineapi'
+} from 'apollo-server-core/src/requestPipelineAPI'
 
 export type LogMapKeyType = 'info' | 'error' | 'debug' | 'warn'
 
@@ -16,7 +16,7 @@ export interface PinoLogFn {
 }
 
 export type CompatibleLogger<Base = unknown> = (Base extends unknown
-  ? {[key: string]: any}
+  ? { [key: string]: any }
   : Base) & {
   info: PinoLogFn
   error: PinoLogFn
@@ -25,7 +25,14 @@ export type CompatibleLogger<Base = unknown> = (Base extends unknown
 }
 
 export interface ResolverArgs<Args = any> {
-  [key: string]: string | number | boolean | ResolverArgs<Args> | ResolverArgs[] | undefined | any
+  [key: string]:
+    | string
+    | number
+    | boolean
+    | ResolverArgs<Args>
+    | ResolverArgs[]
+    | undefined
+    | any
 }
 
 export interface ResolverInfo {
@@ -69,4 +76,6 @@ export type GraphQLResponse<Response extends object> = ApolloGraphQLResponse & {
   data?: Response
 }
 
-export type AsyncGraphQLResponse<Response extends object> = Promise<GraphQLResponse<Response>>
+export type AsyncGraphQLResponse<Response extends object> = Promise<
+  GraphQLResponse<Response>
+>

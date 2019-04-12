@@ -12,6 +12,9 @@
     "test:watch": "jest --config jest.config.js --watch",
     "start:mock": "npx json-server --watch src/data/db.json --port 5555"
   },
+  "resolutions": {
+    "graphql": "14.2.1"
+  },
   "dependencies": {
     "mkdirp": "0.5.1",
     "reflect-metadata": "0.1.13",
@@ -32,9 +35,21 @@
     "@graphql-modules/utils": "0.4.0",
     "pino": "5.12.2",
     "express-pino-logger": "4.0.0",
-    "express": "4.16.4"
+    "express": "4.16.4",
+
+    "graphql": "14.2.1",
+    "apollo-server-core": "2.4.8",
+    "graphql-toolkit": "0.2.9",
+    "encoding": "0.1.12",
+    "utf-8-validate": "5.0.2",
+    "bufferutil": "4.0.1"
   },
   "devDependencies": {
+    "jest": "24.7.1",
+    "jest-cli": "24.7.1",
+    "@types/jest": "24.0.11",
+    "pino-pretty": "2.6.0",
+    "@types/graphql": "14.2.0",
     "typescript": "3.4.3",
     "@types/pino": "5.8.6",
     "@types/mkdirp": "0.5.2",

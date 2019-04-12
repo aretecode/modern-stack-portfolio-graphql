@@ -1,3 +1,6 @@
+/**
+ * @todo keep in sync with react by generating typings & having 1 source of truth
+ */
 export interface BasicLocation {
   address: string
   postalCode: string

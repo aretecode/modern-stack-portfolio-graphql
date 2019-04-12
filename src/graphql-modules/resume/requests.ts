@@ -17,11 +17,6 @@ export class ResumeAPI extends RESTDataSource {
     return this.delete(`/${id}`)
   }
 
-  async completeResume(id: string) {
-    // patch?
-    return this.post(`/${id}`)
-  }
-
   async getResume(id: string) {
     return this.get(`/${id}`)
   }
