@@ -26,8 +26,9 @@
     "skipLibCheck": true,
 
     "allowSyntheticDefaultImports": true,
-    "forceConsistentCasingInFileNames": true,
     "esModuleInterop": true,
+
+    "forceConsistentCasingInFileNames": true,
     "noImplicitReturns": true,
     "noImplicitThis": true,
     "removeComments": false,
@@ -40,8 +41,9 @@
     "moduleResolution": "node"
   },
   "include": ["src/*.ts", "src/**/*.ts"],
-  "excludeTest": ["src/__tests__/*", "src/**/__tests__/*", "src/**/*test.ts"],
   "exclude": [
+    "src/__tests__/*",
+    "src/**/__tests__/*",
     "node_modules",
     "dist",
     "config",

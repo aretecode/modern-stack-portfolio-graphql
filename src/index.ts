@@ -9,4 +9,4 @@ if (process.env.IS_NOW === undefined) {
   startExpress()
 }
 
-export default createApp
+export default createApp()
