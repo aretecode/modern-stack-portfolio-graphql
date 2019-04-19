@@ -15,16 +15,20 @@ export interface Profile {
   url: string
 }
 
-export interface Basics {
+/** in jsonresume, is phone (insteadof telephone) & address is in .location */
+export interface Basics extends BasicLocation {
   name: string
   label: string
   picture: string
   email: string
-  phone: string
+
+  telephone: string
   website: string
   summary: string
-  location: BasicLocation
   profiles: Profile[]
+
+  skills: string[]
+  resumeWebsite: string
 }
 
 export interface Work {
@@ -40,4 +44,8 @@ export interface Work {
 export interface Resume {
   basics: Basics
   work: Work[]
+}
+
+export interface ResumeIndexedResponse {
+  resume: Required<Resume>
 }
