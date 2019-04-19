@@ -8,8 +8,8 @@
     "build": "tsc --outDir dist || true",
     "start": "node dist/index.js",
     "dev:strict": "STRICT_TYPING=true npx ts-node-dev --n src/index.ts",
-    "dev:watch": "ts-node-dev --respawn --transpileOnly src/index.ts",
-    "dev": "ts-node src/index.ts",
+    "dev:watch": "NODE_ENV=development ts-node-dev --respawn --transpileOnly src/index.ts",
+    "dev": "NODE_ENV=development ts-node src/index.ts",
     "test:watch": "jest --config jest.config.js --watch",
     "start:mock": "npx json-server --watch src/data/db.json --port 5555"
   },
