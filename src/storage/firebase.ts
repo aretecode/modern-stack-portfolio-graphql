@@ -1,18 +1,18 @@
 /**
+ * ## Setup
  * @tutorial https://firebase.google.com/docs/admin/setup
  * @see https://console.firebase.google.com/u/0/project/_/settings/serviceaccounts/adminsdk
- * @api https://firebase.google.com/docs/database/admin/retrieve-data
- * @api https://firebase.google.com/docs/database/admin/save-data
- * @see https://firebase.google.com/docs/reference/js/firebase
- * @see https://firebase.google.com/docs/reference/admin/node/admin.credential
+ *
+ * ## Debug
  * @see https://firebase.google.com/docs/auth/admin/errors
- * @example https://github.com/firebase/functions-samples/tree/master/typescript-getting-started
- * @example https://github.com/Inpassor/ts-firebase-app/blob/master/src/helpers/firestore-store.ts
+ *
+ * ## With Zeit Now
  * @see https://spectrum.chat/zeit/now/now-firebase~4f03b7cc-c99c-460a-9881-5dfd5c07e81b
  *
  * @todo cleanup this file, split, test all of it
  */
 import * as admin from 'firebase-admin'
+import { ServiceAccount } from 'firebase-admin'
 import { get, set, has } from './redis'
 import { logger } from '../log'
 
@@ -24,8 +24,9 @@ if (HAS_REQUIRED_ENV) {
   logger.info('[firebase] connecting')
 
   /**
-   * @see https://zeit.co/docs/v2/deployments/environment-variables-and-secrets
-   * @see https://zeit.co/docs/v2/deployments/environment-variables-and-secrets#securing-environment-variables-using-secrets
+   * @see https://firebase.google.com/docs/reference/admin/node/admin.credential
+   * @note the service file given from google account services has `snake_case`
+   *       and the typings from 'firebase-admin' is in `camelCase`
    */
   const serviceAccount = {
     type: 'service_account',
@@ -42,7 +43,7 @@ if (HAS_REQUIRED_ENV) {
     client_email: process.env.FIREBASE_CLIENT_EMAIL,
     client_id: process.env.FIREBASE_CLIENT_ID,
     client_x509_cert_url: process.env.FIREBASE_CERT_URL,
-  }
+  } as ServiceAccount
 
   try {
     admin.initializeApp({
@@ -57,6 +58,13 @@ if (HAS_REQUIRED_ENV) {
   logger.error('[firebase] did not have required env information')
 }
 
+/**
+ * @api https://firebase.google.com/docs/database/admin/retrieve-data
+ * @api https://firebase.google.com/docs/database/admin/save-data
+ * @see https://firebase.google.com/docs/reference/js/firebase
+ * @example https://github.com/firebase/functions-samples/tree/master/typescript-getting-started
+ * @example https://github.com/Inpassor/ts-firebase-app/blob/master/src/helpers/firestore-store.ts
+ */
 export class FireBaseStore {
   async read() {
     const hasResumeInRedis = await has(RESUME_KEY)
