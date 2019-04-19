@@ -8,7 +8,8 @@
     "build": "tsc --outDir dist || true",
     "start": "node dist/index.js",
     "dev:strict": "STRICT_TYPING=true npx ts-node-dev --n src/index.ts",
-    "dev": "ts-node-dev --respawn --transpileOnly src/index.ts",
+    "dev:watch": "NODE_ENV=development ts-node-dev --respawn --transpileOnly src/index.ts",
+    "dev": "NODE_ENV=development ts-node src/index.ts",
     "test:watch": "jest --config jest.config.js --watch",
     "start:mock": "npx json-server --watch src/data/db.json --port 5555"
   },
@@ -16,6 +17,8 @@
     "graphql": "14.2.1"
   },
   "dependencies": {
+    "redis": "2.8.0",
+    "firebase-admin": "7.3.0",
     "mkdirp": "0.5.1",
     "reflect-metadata": "0.1.13",
     "apollo-datasource-rest": "0.3.2",
@@ -45,6 +48,8 @@
     "bufferutil": "4.0.1"
   },
   "devDependencies": {
+    "@types/redis": "2.8.12",
+    "ts-node": "8.1.0",
     "jest": "24.7.1",
     "jest-cli": "24.7.1",
     "@types/jest": "24.0.11",

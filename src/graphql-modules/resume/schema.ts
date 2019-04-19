@@ -37,7 +37,7 @@ export default gql`
     startDate: string
     endDate: string
     summary: string
-    highlights: [string]
+    highlights: string
     website: string
     picture: string
   }
