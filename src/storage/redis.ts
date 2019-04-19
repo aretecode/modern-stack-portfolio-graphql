@@ -22,7 +22,7 @@ function createRedis() {
   const getAsync = promisify(client.get).bind(client)
   const setAsync = promisify(client.set).bind(client)
   const clear = promisify(client.flushdb).bind(client)
-  const hasAsync = async (key: unknown) => !!(await getAsync(key))
+  const hasAsync = async (key: string) => !!(await getAsync(key))
   const has = hasAsync
 
   const get = async (
