@@ -1,6 +1,6 @@
 import mkdirp from 'mkdirp'
 import { resolve } from 'path'
-import { writeFile, readFile, exists } from 'fs'
+import { writeFile, readFile, exists, unlink } from 'fs'
 import { promisify } from 'util'
 
 export const dbAbsolutePath = resolve(__dirname, './db.json')
@@ -8,6 +8,7 @@ export const mkdirpAsync = promisify(mkdirp)
 export const existsAsync = promisify(exists)
 export const readFileAsync = promisify(readFile)
 export const writeFileAsync = promisify(writeFile)
+export const deleteAsync = promisify(unlink)
 
 export async function readFileAsyncJson(filePath: string) {
   const file = await readFileAsync(filePath)
