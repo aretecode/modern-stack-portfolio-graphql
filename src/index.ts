@@ -1,3 +1,4 @@
+export * from './storage'
 export * from './log'
 export * from './server'
 export * from './graphql-modules'
