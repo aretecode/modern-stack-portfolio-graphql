@@ -1,27 +1,57 @@
-import { readFileAsyncJson, writeFileAsyncJson, dbAbsolutePath } from '../../fs'
+/**
+ * @file if we had a larger scale app, we'd split up a more abstract data access system
+ */
+import {
+  readFileAsyncJson,
+  writeFileAsyncJson,
+  dbAbsolutePath,
+} from '../../storage/fs'
 import { logger } from '../../log'
-import db from '../../db.json'
+import db from '../../storage/db.json'
+import { FireBaseStore } from '../../storage/firebase'
+import { isValidResponse } from './utils'
 
-let inMemoryBecauseNowFileSystemIsReadOnly = { ...db }
+let inMemoryBecauseNowFileSystemIsReadOnly = db
+
+async function getFromFireBase() {
+  logger.info('[getResume] from firebase')
+  const instance = new FireBaseStore()
+  const value = await instance.read()
+  if (isValidResponse(value)) {
+    return value
+  } else {
+    logger.warn('[getResume] invalid response from fireBase')
+    return inMemoryBecauseNowFileSystemIsReadOnly
+  }
+}
 
 export default {
   Query: {
     resume: async (obj, args, context, info) => {
-      if (process.env.IS_NOW !== undefined) {
-        console.debug('getResume from memory')
-        return inMemoryBecauseNowFileSystemIsReadOnly
-      }
-
-      try {
-        const response = await readFileAsyncJson(dbAbsolutePath)
-        logger.info('[resume] read file', response)
-        return response
-      } catch (fileSystemError) {
-        logger.error(fileSystemError)
+      if (process.env.NODE_ENV === 'development') {
+        return getFromFireBase()
+      } else if (process.env.IS_NOW !== undefined) {
         /**
-         * @@security don't show the whole stack
+         * this means we haven't set data in memory
          */
-        throw fileSystemError
+        if (inMemoryBecauseNowFileSystemIsReadOnly === db) {
+          return getFromFireBase()
+        } else {
+          logger.debug('[getResume] from memory')
+          return inMemoryBecauseNowFileSystemIsReadOnly
+        }
+      } else {
+        try {
+          const response = await readFileAsyncJson(dbAbsolutePath)
+          logger.info('[getResume] read file', response)
+          return response
+        } catch (fileSystemError) {
+          logger.error(fileSystemError)
+          /**
+           * @@security don't show the whole stack
+           */
+          throw fileSystemError
+        }
       }
     },
   },
@@ -32,7 +62,7 @@ export default {
     setResume: async (obj, args, context, info) => {
       if (process.env.IS_NOW !== undefined) {
         inMemoryBecauseNowFileSystemIsReadOnly = args
-        console.debug('setResume => memory')
+        logger.debug('setResume => memory')
         return
       }
 
