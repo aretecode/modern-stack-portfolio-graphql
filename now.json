@@ -8,8 +8,8 @@
     "FIREBASE_KEY_ID": "@firebase-key-id",
     "FIREBASE_PRIVATE_KEY": "@firebase-private-key",
     "FIREBASE_CLIENT_EMAIL": "@firebase-client-email",
-    "FIREBASE_CLIENT_ID": "@firebse-client-id",
-    "FIREBASE_CERT_URL": "@firebase-cert-email",
+    "FIREBASE_CLIENT_ID": "@firebase-client-id",
+    "FIREBASE_CERT_URL": "@firebase-cert-url",
     "REDIS_PASSWORD": "@redis-password",
     "REDIS_DB_NAME": "@redis-db-name",
     "REDIS_URL": "@redis-url"
