@@ -47,7 +47,7 @@ if (HAS_REQUIRED_ENV) {
   try {
     admin.initializeApp({
       credential: admin.credential.cert(serviceAccount),
-      databaseURL: 'https://james-wiens-resume.firebaseio.com',
+      databaseURL: process.env.FIREBASE_DATABASE_URL,
     })
   } catch (connectionError) {
     logger.error(connectionError)

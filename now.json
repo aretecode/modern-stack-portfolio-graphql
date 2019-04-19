@@ -3,6 +3,7 @@
   "name": "modern-stack-resume-graphql",
   "env": {
     "IS_NOW": "true",
+    "FIREBASE_DATABASE_URL": "https://james-wiens-resume.firebaseio.com",
     "FIREBASE_PROJECT_ID": "@firebase-project-id",
     "FIREBASE_KEY_ID": "@firebase-key-id",
     "FIREBASE_PRIVATE_KEY": "@firebase-private-key",
