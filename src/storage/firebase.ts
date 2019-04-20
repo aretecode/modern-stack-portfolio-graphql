@@ -16,8 +16,9 @@ import { ServiceAccount } from 'firebase-admin'
 import { get, set, has } from './redis'
 import { logger } from '../log'
 
-const RESUME_KEY = '__resume__'
-const HAS_REQUIRED_ENV = typeof process.env.FIREBASE_PRIVATE_KEY === 'string'
+export const RESUME_KEY = '__resume__'
+export const HAS_REQUIRED_ENV =
+  typeof process.env.FIREBASE_PRIVATE_KEY === 'string'
 let didConnectSuccessfully = HAS_REQUIRED_ENV
 
 if (HAS_REQUIRED_ENV) {
