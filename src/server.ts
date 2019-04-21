@@ -20,7 +20,7 @@ function createServer() {
     introspection: true,
     cache: debugCache,
     cacheControl: {
-      defaultMaxAge: 60,
+      defaultMaxAge: process.env.NODE_ENV === 'development' ? 1 : 60,
       stripFormattedExtensions: true,
     },
     /**

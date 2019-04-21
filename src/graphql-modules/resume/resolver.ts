@@ -8,7 +8,7 @@ import {
 } from '../../storage/fs'
 import { logger } from '../../log'
 import db from '../../storage/db.json'
-import { FireBaseStore } from '../../storage/firebase'
+import { FireBaseStore, HAS_REQUIRED_ENV } from '../../storage/firebase'
 import { isValidResponse } from './utils'
 
 let inMemoryBecauseNowFileSystemIsReadOnly = db
@@ -28,7 +28,7 @@ async function getFromFireBase() {
 export default {
   Query: {
     resume: async (obj, args, context, info) => {
-      if (process.env.NODE_ENV === 'development') {
+      if (process.env.NODE_ENV === 'development' && HAS_REQUIRED_ENV === true) {
         return getFromFireBase()
       } else if (process.env.IS_NOW !== undefined) {
         /**
@@ -63,7 +63,10 @@ export default {
       if (process.env.IS_NOW !== undefined) {
         inMemoryBecauseNowFileSystemIsReadOnly = args
         logger.debug('setResume => memory')
-        return
+        return {
+          responseMessage:
+            'updated (in memory), reload the client application.',
+        }
       }
 
       try {
@@ -76,6 +79,11 @@ export default {
          * @@security don't show the whole stack
          */
         throw fileSystemError
+      }
+
+      return {
+        responseMessage:
+          'updated (=> file system), reload the client application.',
       }
     },
   },
