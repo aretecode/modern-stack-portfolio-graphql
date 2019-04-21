@@ -1,5 +1,9 @@
-## Modern Stack Resume [GraphQL]
-Part of the [Modern Stack Resume](https://github.com/aretecode/modern-stack-web-resume)
+## Modern Stack Portfolio [GraphQL]
+Part of the [Modern Stack Portfolio](https://github.com/aretecode/modern-stack-web-portfolio)
+
+[Current Deployment](https://jameswiens-graphql.now.sh/graphql)
+
+[![Deploy to now](https://deploy.now.sh/static/button.svg)](https://deploy.now.sh/?repo=https://github.com/aretecode/modern-stack-resume-graphql) _Graphql_
 
 ## Learn More
 - [json placeholder api](https://jsonplaceholder.typicode.com/)
