@@ -1,5 +1,5 @@
 {
-  "name": "modern-stack-skeleton-graphql",
+  "name": "modern-stack-portfolio-graphql-server",
   "version": "0.0.1",
   "main": "dist/index.js",
   "scripts": {

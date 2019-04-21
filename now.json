@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "name": "modern-stack-resume-graphql",
+  "name": "modern-stack-portfolio-graphql-server",
   "env": {
     "IS_NOW": "true",
     "FIREBASE_DATABASE_URL": "https://james-wiens-resume.firebaseio.com",
