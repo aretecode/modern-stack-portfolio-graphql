@@ -3,7 +3,7 @@ Part of the [Modern Stack Portfolio](https://github.com/aretecode/modern-stack-w
 
 [Current Deployment](https://jameswiens-graphql.now.sh/graphql)
 
-[![Deploy to now](https://deploy.now.sh/static/button.svg)](https://deploy.now.sh/?repo=https://github.com/aretecode/modern-stack-portfolio-graphql) _Graphql_
+[![Deploy to now](https://deploy.now.sh/static/button.svg)](https://deploy.now.sh/?repo=https://github.com/aretecode/modern-stack-portfolio-graphql)
 
 ## Learn More
 - [json placeholder api](https://jsonplaceholder.typicode.com/)
