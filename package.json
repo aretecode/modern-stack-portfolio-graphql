@@ -57,6 +57,7 @@
     "pino-pretty": "2.6.1",
     "@types/graphql": "14.2.0",
     "typescript": "3.4.5",
+    "@firebase/app-types": "0.3.10",
     "@types/pino": "5.8.6",
     "@types/mkdirp": "0.5.2",
     "@types/express": "4.16.1",
