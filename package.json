@@ -14,7 +14,8 @@
     "start:mock": "npx json-server --watch src/data/db.json --port 5555"
   },
   "resolutions": {
-    "graphql": "14.2.1"
+    "graphql": "14.2.1",
+    "node-fetch": "2.5.0"
   },
   "dependencies": {
     "redis": "2.8.0",
@@ -34,7 +35,7 @@
     "@graphql-modules/core": "0.7.0",
     "@graphql-modules/epoxy": "0.4.0",
     "@graphql-modules/sonar": "0.4.0",
-    "@graphql-modules/di": "0.7.0",
+    "@graphql-modules/di": "0.7.1",
     "@graphql-modules/utils": "0.4.0",
     "pino": "5.12.3",
     "express-pino-logger": "4.0.0",
