@@ -42,6 +42,7 @@
   },
   "include": ["src/*.ts", "src/**/*.ts"],
   "exclude": [
+    "**/.env",
     "src/__tests__/*",
     "src/**/__tests__/*",
     "node_modules",
