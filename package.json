@@ -15,7 +15,8 @@
   },
   "resolutions": {
     "graphql": "14.2.1",
-    "node-fetch": "2.5.0"
+    "node-fetch": "2.5.0",
+    "@graphql-modules/di": "0.7.1"
   },
   "dependencies": {
     "redis": "2.8.0",
