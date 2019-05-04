@@ -57,7 +57,8 @@
     "typescript": "3.4.5",
     "@types/pino": "5.8.6",
     "@types/mkdirp": "0.5.2",
-    "@types/express": "4.16.1"
+    "@types/express": "4.16.1",
+    "danger": "7.1.4"
   },
   "license": "MIT",
   "description": "Graphql portion of the generic portfolio, written in the modern web stack, used on jameswiens.dev site",
