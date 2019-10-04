@@ -11,7 +11,9 @@
     "dev:watch": "NODE_ENV=development ts-node-dev --respawn --transpileOnly src/index.ts",
     "dev": "NODE_ENV=development ts-node src/index.ts",
     "test:watch": "jest --config jest.config.js --watch",
-    "start:mock": "npx json-server --watch src/data/db.json --port 5555"
+    "start:mock": "npx json-server --watch src/data/db.json --port 5555",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "resolutions": {
     "graphql": "14.3.0",
@@ -46,7 +48,8 @@
     "graphql-toolkit": "0.2.12",
     "encoding": "0.1.12",
     "utf-8-validate": "5.0.2",
-    "bufferutil": "4.0.1"
+    "bufferutil": "4.0.1",
+    "snyk": "^1.230.5"
   },
   "devDependencies": {
     "@types/redis": "2.8.12",
@@ -80,5 +83,6 @@
     "aretecode",
     "portfolio",
     "graphql"
-  ]
+  ],
+  "snyk": true
 }
