@@ -33,7 +33,7 @@
     "apollo-server-express": "2.5.0",
     "graphql-tools": "4.0.4",
     "graphql-extensions": "0.6.0",
-    "@graphql-modules/core": "0.7.3",
+    "@graphql-modules/core": "0.7.8",
     "@graphql-modules/epoxy": "0.4.0",
     "@graphql-modules/sonar": "0.4.0",
     "@graphql-modules/di": "0.7.3",
