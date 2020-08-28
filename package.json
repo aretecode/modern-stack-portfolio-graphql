@@ -33,7 +33,7 @@
     "apollo-server-express": "2.5.0",
     "graphql-tools": "4.0.4",
     "graphql-extensions": "0.6.0",
-    "@graphql-modules/core": "0.7.3",
+    "@graphql-modules/core": "0.7.14",
     "@graphql-modules/epoxy": "0.4.0",
     "@graphql-modules/sonar": "0.4.0",
     "@graphql-modules/di": "0.7.3",
@@ -43,7 +43,7 @@
     "express": "4.17.0",
     "graphql": "14.3.0",
     "apollo-server-core": "2.5.0",
-    "graphql-toolkit": "0.2.12",
+    "graphql-toolkit": "0.6.0",
     "encoding": "0.1.12",
     "utf-8-validate": "5.0.2",
     "bufferutil": "4.0.1"
