@@ -27,7 +27,7 @@
     "apollo-datasource": "0.4.0",
     "apollo-errors": "1.9.0",
     "apollo-resolvers": "1.4.1",
-    "apollo-server": "2.5.0",
+    "apollo-server": "2.25.3",
     "apollo-server-caching": "0.4.0",
     "apollo-server-cache-redis": "0.4.0",
     "apollo-server-express": "2.5.0",
